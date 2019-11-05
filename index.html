@@ -62,6 +62,388 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-NAT地址转换" class="post-NAT地址转换 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/11/05/NAT地址转换/" data-id="ck2lmtwfv0000o8w0mcbvtj2u" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="NAT网络地址转换"><a href="#NAT网络地址转换" class="headerlink" title="NAT网络地址转换"></a>NAT网络地址转换</h1><blockquote>
+<p><strong>为了解决IPV4地址不够的问题，我们采用私有地址和公网地址来进行暂时缓解地址不够的压力。</strong></p>
+</blockquote>
+<p>私有地址：</p>
+<blockquote>
+<p>A类分出：10.0.0.0/8<br>B类分出：172.16.0.0/12<br>C类分出：192.168.0.0/16</p>
+</blockquote>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-d2d1c3fb61ff1197d79f9cb5b9791362_hd.jpg" alt="img"></p>
+<p><strong>注：私网地址只是在私网里有效，在公网里无效。因此，为了能让私网IP能够访问公网IP，就必须进行NAT转换。</strong></p>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-5fe1e464b286220c8dbab9d3bc37975e_hd.jpg" alt="img"></p>
+<h2 id="NAT术语介绍"><a href="#NAT术语介绍" class="headerlink" title="NAT术语介绍"></a>NAT术语介绍</h2><p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-7785998c95fced42be835d3bd8a03d63_hd.jpg" alt="img">NAT术语</p>
+<h2 id="NAT类型："><a href="#NAT类型：" class="headerlink" title="NAT类型："></a><strong>NAT类型：</strong></h2><blockquote>
+<p>静态NAT：私网和公网IP一对一映射，一旦确定，即便不用也其他私网IP也不能再使用改公网IP地址。<br>动态NAT：私网和公网IP池进行一对一映射，免去了人为的配置，同时可以让有限的公网IP地址能够重复使用，但依旧是一个私网IP对应一                  个公网IP地址。<br>PAT：       真正实现多对一的映射，一个私网IP对应一个公网IP+端口号，因此端口不同，一个公网IP就能被多个私网IP地址使用。</p>
+</blockquote>
+<h3 id="静态NAT："><a href="#静态NAT：" class="headerlink" title="静态NAT："></a><strong><em>静态NAT：</em></strong></h3><p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-bec296e29c63bf6cd5c6df9db7d10f3f_hd.jpg" alt="img">静态NAT介绍</p>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-3072c85c57465ee77468e78f993ccc99_hd.jpg" alt="img"></p>
+<h3 id="动态NAT："><a href="#动态NAT：" class="headerlink" title="动态NAT："></a><strong>动态NAT：</strong></h3><p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-2985148cb3bf012677ea9e9b2bdb13df_hd.jpg" alt="img">动态NAT介绍</p>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-9a46c23621c29de9f7943bb2e4fc6fd4_hd.jpg" alt="img"></p>
+<h3 id="PAT："><a href="#PAT：" class="headerlink" title="PAT："></a><strong>PAT：</strong></h3><p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-ec24d033a4aa8fe258c1071c45f68433_hd.jpg" alt="img">PAT的介绍</p>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-a80b51dce79a09c0b4b3d9ae085b83cf_hd.jpg" alt="img"></p>
+<h2 id="三种方式的配置方法："><a href="#三种方式的配置方法：" class="headerlink" title="三种方式的配置方法："></a>三种方式的配置方法：</h2><h3 id="配置静态NAT："><a href="#配置静态NAT：" class="headerlink" title="配置静态NAT："></a><strong>配置静态NAT：</strong></h3><blockquote>
+<p>1、声明要配置一个静态NAT：ip nat inside source static <em>local-ip global-ip</em><br>2、为路由器接口声明内外网接口：<br>2.1为面向源地址的私网接口声明：ip nat inside<br>2.2为面向目的地址的公网接口声明：ip nat outside</p>
+</blockquote>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-d032dffe0b22f6503b0f52a7329810a7_hd.jpg" alt="img"></p>
+<h3 id="配置动态NAT："><a href="#配置动态NAT：" class="headerlink" title="配置动态NAT："></a><strong>配置动态NAT：</strong></h3><blockquote>
+<p>1、声明一个内部全局地址池：ip nat pool name <em>stat-ip end-ip</em><br><em>2、*声明一个ACL去控制私网转换权限，只有满足ACl的私网IP才能去使用定义的全局地址池里的公网IP地址：access-list *access-list-number</em> permit source 【souece-wildcard】<br>3、同样给内部本地接口去声明一下ACl和本地全局池：ip nat inside source list <em>access-list-number</em> pool <em>name</em><br><em>4、同样地给</em>路由器接口声明内外网接口：同静态NAT的操作</p>
+</blockquote>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-616a49efa9ad577e1cee99d983028b04_hd.jpg" alt="img"></p>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-4271f04fd8b2ba1ea3f582259160f5ad_hd.jpg" alt="img">实例配置动态NAT</p>
+<h3 id="配置PAT："><a href="#配置PAT：" class="headerlink" title="配置PAT："></a><strong>配置PAT：</strong></h3><blockquote>
+<p>1、定义内网能够允许外网的源地址段（ACL）：access-list a<em>ccess-list-number</em> permit source <em>souece-wildcard</em><br>2、将ACL关联到外网接口上去：ip nat inside source list a<em>ccess-list-number</em> interface <em>interface</em> <strong>overlord</strong><br>3、之后为路由器声明私网和公网的接口：同静态NAT的配置方法</p>
+</blockquote>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-a91c359a49dfd82443e0a00614c9e267_hd.jpg" alt="img"></p>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-5abdb54e907de11091d0a5ee7f7e4ba2_hd.jpg" alt="img">实例配置PAT</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/11/05/NAT地址转换/">
+    <time datetime="2019-11-05T09:07:16.382Z" class="entry-date">
+        2019-11-05
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-Cisco Packet Tracer介绍与思科设备的基本配置" class="post-Cisco Packet Tracer介绍与思科设备的基本配置 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/09/02/Cisco Packet Tracer介绍与思科设备的基本配置/" data-id="ck02eusf30002pgw0tqgpbxwq" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="Cisco-Packet-Tracer介绍与思科设备的基本配置"><a href="#Cisco-Packet-Tracer介绍与思科设备的基本配置" class="headerlink" title="Cisco Packet Tracer介绍与思科设备的基本配置"></a>Cisco Packet Tracer介绍与思科设备的基本配置</h1><h2 id="一、PT介绍及思科的基本操作命令"><a href="#一、PT介绍及思科的基本操作命令" class="headerlink" title="一、PT介绍及思科的基本操作命令"></a><strong>一、PT介绍及思科的基本操作命令</strong></h2><p>1、PT介绍（界面、路由器、交换机、线缆、工具…..）</p>
+<p>双绞线：直通线、交叉线、全反线（CONSOLE线）</p>
+<p>线序标准：</p>
+<p>​        T568B：橙白 橙  绿白 蓝 蓝白 绿 棕白 棕</p>
+<p>​        T568A：绿白 绿  橙白 蓝 蓝白 橙 棕白 棕</p>
+<p>直通线：T568B-T568B    T568A-T568A</p>
+<p><strong>不同种设备</strong>相连（模拟器不支持自适应）</p>
+<p>​           交换机–路由器  路由器–集线器  交换机–PC机</p>
+<p>​    交叉线：568A–568B 同种设备相连</p>
+<p>​           交换机–交换机  路由器–路由器 交换机–集线器</p>
+<p>全反线：（CONSOLE线）</p>
+<p>2、设备的连接</p>
+<p>3、路由器的开机过程：</p>
+<p>开机过程：加电自检–从flash查找和装载IOS–从NVROM（非易失性                      </p>
+<p>存储器）里加载启动配置文件—是否进入配置向导–</p>
+<p>​                            直接进入配置模式</p>
+<p>配置文件：startupconfig   runningconfig</p>
+<p>启动配置文件   运行配置文件</p>
+<p>4、基本命令操作：       </p>
+<p>5、  （1）、模式：</p>
+<p>​      Router&gt;用户模式</p>
+<p>​      Router&gt;enable</p>
+<p>​      Router#特权模式</p>
+<p>​      Router#configure terminal </p>
+<p>​      Router(config)#全局配置模式</p>
+<p>​      Router(config)#hostname R1  （配置路由器的名称）</p>
+<p>​      R1(config)#interface FastEthernet 0/0</p>
+<p>​      R1(config-if)#接口模式</p>
+<p>​      R1(config-if)#ip address 192.168.1.1 255.255.255.0 （配置IP地址）</p>
+<p>​      R1(config-if)#no shutdown （开启端口）</p>
+<p>​      两台路由器相连，测试连通性</p>
+<p>​       Router&gt;用户模式</p>
+<p>​       Router&gt;enable</p>
+<p>​       Router#特权模式</p>
+<p>​       Router#configure terminal </p>
+<p>​       Router(config)#全局配置模式</p>
+<p>​       Router(config)#hostname R2  （配置路由器的名称）</p>
+<p>​       R2(config)#interface FastEthernet 0/0</p>
+<p>​       R2(config-if)#接口模式</p>
+<p>​       R2(config-if)#ip address 192.168.1.2 255.255.255.0 （配置IP地址）</p>
+<p>​       R2(config-if)#no shutdown （开启端口）</p>
+<p>​       使用ping命令测试通信：如果通信用!!!表示，不通用…表示</p>
+<p>​           R1(config-if)#接口模式</p>
+<p>​           R1(config-if)#exit  退出当前模式，返回上一级模式</p>
+<p>​           R1(config)#全局配置模式</p>
+<p>​           R1(config)#exit</p>
+<p>​           R1#特权模式</p>
+<p>​           R1#ping 192.168.1.1 </p>
+<p>​        –输入end（或ctrl+c或ctrl+z）直接返回到特权模式—————–</p>
+<p>​            R1(config-if)#end</p>
+<p>​            R1#特权模式</p>
+<p>​        -——————————————</p>
+<p>   （2）命令支持简写</p>
+<p>   （3）帮助功能</p>
+<p>   （4）tab补全命令</p>
+<p>   （5）给设备配置密码：防止别人非法更改我设备的配置</p>
+<p>​       </p>
+<p>​      为特权模式配置明文密码</p>
+<p>​       R1(config)#enable password 123456   明文密码</p>
+<p>​       R1(config)#show running-config   可以查看密码</p>
+<p>​       Current configuration : 565 bytes  配置文件大小可以判断是否更改设备配置</p>
+<p>​      为特权模式配置密文密码</p>
+<p>​       R1(config)#enable secret 123456   明文密码</p>
+<p>​       R1(config)#show running-config   可以查看密码</p>
+<p>​       两个密码同时配置时，加密的密码生效。</p>
+<p>   （6）保存配置文件</p>
+<p>​       R1#copy <strong>running-config</strong> startup-config  </p>
+<p>​       或  R1#write</p>
+<p>​              </p>
+<p>   （7）查看命令</p>
+<p>​        R1#show ip interface brief  查看接口摘要信息</p>
+<p>​        R1#show running-config      查年当前的运行配置文件</p>
+<p>​        R1#show startup-config      查看启动配置文件</p>
+<p>   （8）重启设备：</p>
+<p>​        R1#reload</p>
+<p>​     </p>
+<p>模式：</p>
+<p>enable (en)  configure terminal(config t)   interface fastEthernet 0/1(int f0/1)</p>
+<p>Show</p>
+<p>running-config    startup-config</p>
+<p>copy runing-config startup-config 或 write(w)</p>
+<p>Ip add 192.168.10.1 255.255.255.0</p>
+<p>no shutdown</p>
+<p>reload</p>
+<h2 id="二、路由器与交换机的管理"><a href="#二、路由器与交换机的管理" class="headerlink" title="二、路由器与交换机的管理"></a><strong>二、路由器与交换机的管理</strong></h2><p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps1.jpg" alt="img"> </p>
+<p> （1）通过带外方式对设备进行管理</p>
+<p> （2）通过Telnet对设备进行远程管理</p>
+<p> （3）通过Web对设备进行远程管理</p>
+<p> （4）通过SNMP管理工作站对设备进行远程管理</p>
+<h3 id="实验1-交换机基本配置"><a href="#实验1-交换机基本配置" class="headerlink" title="实验1  交换机基本配置"></a><strong>实验1  交换机基本配置</strong></h3><p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps2.jpg" alt="img"></p>
+<p>（1）硬件的连接</p>
+<p>（2）软件的设置</p>
+<p>（3）交换机的基本配置</p>
+<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps3.jpg" alt="img"> </p>
+<p>终端配置窗口</p>
+<p>Switch&gt;enable                            /由用户模式进入特权模式</p>
+<p>Switch#configure terminal                  /进入全局配置模式</p>
+<p>Switch(config)#hostname sw2960           /设置提示符为sw2960</p>
+<p>sw2960(config)#interface fastEthernet 0/1    /进入端口配置模式</p>
+<p>sw2960(config-if)#exit                    /退出端口配置模式，回到全局配置模式</p>
+<p>sw2960(config)#ex                  /使用简写命令退出全局配置模式，回到特权模式</p>
+<p>sw2960#?                              /显示当前模式下可用的命令</p>
+<p>sw2960#write                        /将当前运行时配置参数保存到Flash Memory</p>
+<p>sw2960#reload                       /重新启动交换机</p>
+<h3 id="实验2-Telnet的配置与实现"><a href="#实验2-Telnet的配置与实现" class="headerlink" title="实验2  Telnet的配置与实现"></a><strong>实验2  Telnet的配置与实现</strong></h3><p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps4.jpg" alt="img"> </p>
+<p>（1）硬件的连接</p>
+<p>（2）软件的设置</p>
+<p>（3）交换机Telnet的配置</p>
+<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps5.jpg" alt="img"> </p>
+<p>设置PC的IP地址</p>
+<p>Switch&gt;en                     /enable命令的简写，以下命令中多处采用命令简写</p>
+<p>Switch#conf t</p>
+<p>Switch(config)#int vlan 1</p>
+<p>Switch(config-if)#ip add 192.168.1.1 255.255.255.0        /设置管理交换机的IP地址</p>
+<p>Switch(config-if)#no shut                             /启用接口</p>
+<p>Switch(config-if)#ex</p>
+<p>Switch(config)#enable secret 0 1234  (密文密码)    /配置进入特权模式的密码为1234</p>
+<p>​          enable passwrod 1234  (明文密码)  如果两个密码都设置了，密文密码生效</p>
+<p>Switch(config)#line vty 0 4                       /进入VTY端口</p>
+<p>Switch(config-line)#password 4321                /设置Telnet的登录密码为4321</p>
+<p>Switch(config-line)#login                        /允许Telnet登录</p>
+<p>4．验证</p>
+<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps6.jpg" alt="img"> </p>
+<p><strong>遇到的问题及解决办法：</strong></p>
+<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps7.jpg" alt="img"> </p>
+<p>原因：是将命令当成了域名进行解析</p>
+<p>解决办法：在全局模式下输入：no ip domain-lookup（取消域名搜索）</p>
+<p>​                            Ctrl+shift+6</p>
+<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps8.jpg" alt="img"> </p>
+<p>表示输入的命令是错误的</p>
+<p><strong>思考：如何实现在任意PC机上都可以远程管理设备？</strong></p>
+<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps9.jpg" alt="img"> </p>
+<h3 id="实验3-IOS的升级"><a href="#实验3-IOS的升级" class="headerlink" title="实验3  IOS的升级"></a><strong>实验3  IOS的升级</strong></h3><p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps10.jpg" alt="img"> </p>
+<p>1．硬件的连接</p>
+<p>2．软件的设置</p>
+<p>3．交换机的配置</p>
+<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps11.jpg" alt="img"> </p>
+<p><strong>升级IOS：</strong></p>
+<p>Switch#copy tftp: flash: </p>
+<p>Address or name of remote host []? 192.168.0.3</p>
+<p>Source filename []? </p>
+<p><strong>备份IOS：</strong></p>
+<p>Switch#show flash</p>
+<p>Switch#copy flash: tftp: </p>
+<p>Source filename []? runningcof</p>
+<p>Address or name of remote host []? 192.168.0.3</p>
+<p>Destination filename [runningcof]? </p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/09/02/Cisco Packet Tracer介绍与思科设备的基本配置/">
+    <time datetime="2019-09-02T12:59:25.355Z" class="entry-date">
+        2019-09-02
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-github博客搭建" class="post-github博客搭建 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/09/02/github博客搭建/" data-id="ck02eiy6b0001pgw0dnnh2860" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="那么我为什么要建立自己的博客？——引自-为什么你要写博客？—陈素封"><a href="#那么我为什么要建立自己的博客？——引自-为什么你要写博客？—陈素封" class="headerlink" title="那么我为什么要建立自己的博客？——引自:为什么你要写博客？—陈素封"></a>那么我为什么要建立自己的博客？<em>——引自:为什么你要写博客？—陈素封</em></h2><h3 id="1-“提高将事情讲清楚的能力”"><a href="#1-“提高将事情讲清楚的能力”" class="headerlink" title="1.“提高将事情讲清楚的能力”."></a>1.“提高将事情讲清楚的能力”.</h3><blockquote>
+<p>在写博客之前你需要花更多的时间来表达出你的想法，表达你想法之前你得先对你要表达的东西充分理解并理清思路和逻辑。</p>
+<blockquote>
+<p>很多东西你以为懂了，但当你在写下来的时候，你就觉得无从下手了。</p>
+</blockquote>
+</blockquote>
+<h3 id="2-分享带来的连锁反应"><a href="#2-分享带来的连锁反应" class="headerlink" title="2.分享带来的连锁反应"></a>2.分享带来的连锁反应</h3><blockquote>
+<p>“通过分享，你获得了直接而快速的回报，你最终或许会发现你已将版权和“保留所有权利”抛诸脑后。新的经济学准则是：参与你作品的人越多，回报越高。在分享主义里，如果你愿意你可以保留所有权，但是我乐于分享。” by 毛向辉 《分享主义：一场思维革命》</p>
+</blockquote>
+<h3 id="3-记录成长"><a href="#3-记录成长" class="headerlink" title="3.记录成长"></a>3.记录成长</h3><blockquote>
+<p>我们每个人都应该有这样的经历:隔了很久我们回头看看以前的自己会发现特别傻x,但正是因为这些傻x的岁月让我们不断成长,你在成长的过程中不断的修正自己的错误。</p>
+</blockquote>
+<h3 id="4-探索未知的世界"><a href="#4-探索未知的世界" class="headerlink" title="4.探索未知的世界"></a>4.探索未知的世界</h3><blockquote>
+<p>世界不止是你的家，你的公司，你的朋友圈，你应该去发现一个更大的世界，通过写博客，你会知道世界上还有很多人像你一样在写博客，这些人和知识正在世界的某个角落在等着你。</p>
+</blockquote>
+<h3 id="5-帮助更多想要获取帮助的人"><a href="#5-帮助更多想要获取帮助的人" class="headerlink" title="5.帮助更多想要获取帮助的人"></a>5.帮助更多想要获取帮助的人</h3><blockquote>
+<p>这点我相信大家由为感触,在你探索一个未知的知识领域的时候,往往被撞的一鼻子灰.幸运的人很快就能找到一个“师傅”或一篇很好的文章,但大多数往往在找“教程”的过程中就已经放弃了.因为他们没能够找到刚好理解的文章.</p>
+</blockquote>
+<h1 id="一、开始搭建Github-Pages"><a href="#一、开始搭建Github-Pages" class="headerlink" title="一、开始搭建Github Pages"></a>一、开始搭建Github Pages</h1><p>参考:<a href="http://cyzus.github.io/2015/06/21/github-build-blog/" target="_blank" rel="noopener">傻瓜都可以利用github pages建博客</a><br>参考:<a href="https://segmentfault.com/a/1190000004947261" target="_blank" rel="noopener">手把手教你使用Hexo + Github Pages搭建个人独立博客</a><br><em>可以选择阅读完以上两篇教程后倒回来看不懂的地方.</em></p>
+<h2 id="1-使用前了解Github"><a href="#1-使用前了解Github" class="headerlink" title="1.使用前了解Github"></a>1.使用前了解Github</h2><blockquote>
+<p>GitHub是一个共享虚拟主机服务，用于存放使用Git版本控制的软件代码和内容项目(引自维基百科）</p>
+</blockquote>
+<h2 id="2-为什么选择Github"><a href="#2-为什么选择Github" class="headerlink" title="2.为什么选择Github?"></a>2.为什么选择Github?</h2><blockquote>
+<p>github有一个很有爱的项目，叫做github pages，这个项目是给开发者建立一个私人页面，上面用来分享新颖的想法和自己写的代码.</p>
+</blockquote>
+<h2 id="3-注册属于你自己的Github账号"><a href="#3-注册属于你自己的Github账号" class="headerlink" title="3.注册属于你自己的Github账号"></a>3.注册属于你自己的Github账号</h2><p>首先进入<a href="https://github.com/" target="_blank" rel="noopener">Github</a>站点,然后进行注册(此处不做详细说明可自行阅读<a href="http://jingyan.baidu.com/article/455a9950abe0ada167277864.html" target="_blank" rel="noopener">github教程：[1]注册github</a>)</p>
+<p>注册完毕后你就拥有了自己的代码仓库了.</p>
+<h2 id="4-创建仓库"><a href="#4-创建仓库" class="headerlink" title="4.创建仓库"></a>4.创建仓库</h2><p>在Github首页右上角头像左侧加号点选择 New repositor(新存储库)或<a href="https://github.com/new" target="_blank" rel="noopener">点击这里</a>进行创建一个仓库.</p>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5Cassets%5C1250458-20171017153553099-864426472.png" alt="img"></p>
+<h2 id="5-开启Github-Pages"><a href="#5-开启Github-Pages" class="headerlink" title="5.开启Github Pages"></a>5.开启Github Pages</h2><p>进入设置<br><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5Cassets%5C1250458-20171017153603724-1692083166.png" alt="img"></p>
+<p>找到这一块</p>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5Cassets%5C1250458-20171017153612084-222458600.png" alt="img"></p>
+<p>当你的仓库名为：用户名.github.io 之后默认开启Github Pages</p>
+<p>现在随便选择一个主题,选择上图的 Choose a theme 之后会跳转到下面这个页面</p>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5Cassets%5C1250458-20171017153620459-1846640047.png" alt="img"></p>
+<p>设置完毕后你就可以通过 username.github.io(username为你的用户名访问你的博客了)</p>
+<h2 id="6-下载Github-客户端"><a href="#6-下载Github-客户端" class="headerlink" title="6.下载Github 客户端"></a>6.下载Github 客户端</h2><p>根据自己的系统自行选择下载安装</p>
+<p><a href="https://desktop.github.com/" target="_blank" rel="noopener">点击前往Github下载</a></p>
+<p>下载安装好之后登陆你的github.</p>
+<p>从你的仓库添加到本地</p>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5Cassets%5C1250458-20171017153627709-411018380.png" alt="img"></p>
+<p>接下来就需要搭建Hexo了</p>
+<h1 id="二、Hexo"><a href="#二、Hexo" class="headerlink" title="二、Hexo"></a>二、Hexo</h1><p>要使用Hexo,需要安装Nodejs以及Git</p>
+<h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><p><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">下载Node.js</a><br>参考:<a href="http://www.runoob.com/nodejs/nodejs-install-setup.html" target="_blank" rel="noopener">安装Node.js</a></p>
+<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p><a href="https://git-scm.com/download/" target="_blank" rel="noopener">下载Git</a></p>
+<p>一路点击Next就行了.</p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>在你需要安装Hexo的目录下(新建一个文件夹)右键选择 Git Bash</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g   </span><br><span class="line">hexo init #初始化网站   </span><br><span class="line">npm install   </span><br><span class="line">hexo g #生成或 hexo generate   </span><br><span class="line">hexo s #启动本地服务器 或者 hexo server,这一步之后就可以通过http://localhost:4000  查看了</span><br></pre></td></tr></table></figure>
+
+<p><em>详细命令请参考Hexo文档</em></p>
+<p>这里介绍一下怎么创建一篇文章</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;文章名&quot; #新建文章</span><br><span class="line">hexo new page &quot;页面名&quot; #新建页面</span><br></pre></td></tr></table></figure>
+
+<p>常用简写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>新建一篇文章后就可以<a href="http://localhost:4000/" target="_blank" rel="noopener">预览</a>了,在hexo new之后执行一次生成hexo g再执行hexo s启动本地服务器,如果之前还在hexo s 按Ctrl + C 结束.</p>
+<h2 id="添加主题"><a href="#添加主题" class="headerlink" title="添加主题"></a>添加主题</h2><h3 id="安装主题-yilia主题"><a href="#安装主题-yilia主题" class="headerlink" title="安装主题(yilia主题):"></a>安装主题(yilia主题):</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动主题"><a href="#启动主题" class="headerlink" title="启动主题"></a>启动主题</h3><p>找到目录下的_config.yml 文件,打开找到 theme：属性并设置为yilia</p>
+<h3 id="更新主题"><a href="#更新主题" class="headerlink" title="更新主题"></a>更新主题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd themes/yilia</span><br><span class="line">git pull</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>此时刷新<a href="http://localhost:4000/页面就能看到新的主题了" target="_blank" rel="noopener">http://localhost:4000/页面就能看到新的主题了</a>.</p>
+<h2 id="使用Hexo-deploy部署到github"><a href="#使用Hexo-deploy部署到github" class="headerlink" title="使用Hexo deploy部署到github"></a>使用Hexo deploy部署到github</h2><p>还是编辑根目录下_config.yml文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">    type: git</span><br><span class="line">    repo: git@github.com:dj-jing/dj-jing.github.io.git  #这里的网址填你自己的</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure>
+
+<p>具体配置可参考<a href="https://github.com/cczeng/BlogBackup" target="_blank" rel="noopener">我的博客备份</a></p>
+<p>保存后需要提前安装一个扩展：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>接下来就是将Hexo部署到我们的Github仓库上</p>
+<h1 id="三、部署到Github"><a href="#三、部署到Github" class="headerlink" title="三、部署到Github"></a>三、部署到Github</h1><h2 id="1-检查SSH-keys的设置"><a href="#1-检查SSH-keys的设置" class="headerlink" title="1.检查SSH keys的设置"></a>1.检查SSH keys的设置</h2><p>以下命令均是在Git bash里输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br><span class="line">ls</span><br><span class="line">#此时会显示一些文件</span><br><span class="line">mkdir key_backup</span><br><span class="line">cp id_rsa* key_backup</span><br><span class="line">rm id_rsa*  </span><br><span class="line">#以上三步为备份和移除原来的SSH key设置</span><br><span class="line">ssh-keygen -t rsa -C &quot;邮件地址@youremail.com&quot; #生成新的key文件,邮箱地址填你的Github地址 e.g：1090502330@qq.com</span><br><span class="line">#Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):&lt;回车就好&gt;</span><br><span class="line">#接下来会让你输入密码</span><br></pre></td></tr></table></figure>
+
+<p>之后就可以看到成功的界面。</p>
+<h2 id="2-添加SSH-Key到Github"><a href="#2-添加SSH-Key到Github" class="headerlink" title="2.添加SSH Key到Github"></a>2.添加SSH Key到Github</h2><p>进入<a href="https://github.com/" target="_blank" rel="noopener">github首页</a></p>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5Cassets%5C1250458-20171017153636849-294935886.png" alt="img"></p>
+<p>添加SSH Key。</p>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5Cassets%5C1250458-20171017153642521-647884655.png" alt="img"></p>
+<p>找到 系统当前用户目录下(开启查看隐藏文件) C:\Users\用户名\ .ssh id_rsa.pub文件以文本方式打开。打开之后全部复制到key中</p>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5Cassets%5C1250458-20171017153648631-441574444.png" alt="img"></p>
+<p>到了这就可以测试一下是否成功了:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br><span class="line">#之后会要你输入yes/no,输入yes就好了。</span><br></pre></td></tr></table></figure>
+
+<p>设置你的账号信息:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的名字&quot;     #真实名字不是github用户名</span><br><span class="line">git config --global user.email &quot;邮箱@邮箱.com&quot;    #github邮箱</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-部署到github"><a href="#3-部署到github" class="headerlink" title="3.部署到github"></a>3.部署到github</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d # 要在/f/Github_bolg/hexo/hexo文件夹下使用</span><br></pre></td></tr></table></figure>
+
+<p>这时再刷新 username.github.io 就可以看到你的博客了。</p>
+<p>到了这你以为就结束了吗？没有，还有坑没有给你们填好。</p>
+<h1 id="四、最后的填坑"><a href="#四、最后的填坑" class="headerlink" title="四、最后的填坑"></a>四、最后的填坑</h1><ol>
+<li>不知道怎么修改yilia主题?(修改<em>themes/yilia/_config.yml</em>)请参考<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">一个简洁优雅的hexo主题</a></li>
+<li>Hexo主题配置(根目录_config.yml文件)</li>
+<li>电脑重装了系统/多台电脑写博客？那就赶紧戳这里<a href="https://www.zhihu.com/question/21193762" target="_blank" rel="noopener">使用hexo，如果换了电脑怎么更新博客？</a></li>
+<li>不知道如何编写Markdown语法？<a href="http://www.jianshu.com/p/1e402922ee32/" target="_blank" rel="noopener">Markdown——入门指南</a></li>
+<li>想要给网站添加图片？请把图片放入根目录 <em>source\</em> 下建立一个文件夹，当你执行hexo g的时候此文件夹自动生成到public中。</li>
+</ol>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>可能有部分细节疏漏，请参考：<br><em>全文参考:傻瓜都可以利用github pages建博客</em><br><em>全文参考:手把手教你使用Hexo + Github Pages搭建个人独立博客</em></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/09/02/github博客搭建/">
+    <time datetime="2019-09-02T12:50:12.928Z" class="entry-date">
+        2019-09-02
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-hello-world" class="post-hello-world post type-post status-publish format-standard hentry">
     <!---->
 
@@ -77,7 +459,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/09/02/hello-world/" data-id="ck02coklh00007cw0l06czivj" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/09/02/hello-world/" data-id="ck02ed8nb0000pgw0tqilexya" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -138,6 +520,18 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget-content">
       <ul>
+        
+          <li>
+            <a href="/2019/11/05/NAT地址转换/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/02/Cisco Packet Tracer介绍与思科设备的基本配置/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/02/github博客搭建/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2019/09/02/hello-world/">Hello World</a>

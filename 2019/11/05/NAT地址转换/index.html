@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="NAT网络地址转换
+为了解决IPV4地址不够的问题，我们采用私有地址和公网地址来进行暂时缓解地址不够的压力。
+
+私有地址：
+
+A类分出：10.0.0.0/8B类分出：172.16.0.0/12C类分出：192.168.0.0/16
+
+
+注：私网地址只是在私网里有效，在公网里无效。因此，为了能让私网I">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="NAT网络地址转换 为了解决IPV4地址不够的问题，我们采用私有地址和公网地址来进行暂时缓解地址不够的压力。  私有地址：  A类分出：10.0.0.0/8B类分出：172.16.0.0/12C类分出：192.168.0.0/16   注：私网地址只是在私网里有效，在公网里无效。因此，为了能让私网IP能够访问公网IP，就必须进行NAT转换。  NAT术语介绍NAT术语 NAT类型： 静态NAT：私">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/11/05/NAT地址转换/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="NAT网络地址转换 为了解决IPV4地址不够的问题，我们采用私有地址和公网地址来进行暂时缓解地址不够的压力。  私有地址：  A类分出：10.0.0.0/8B类分出：172.16.0.0/12C类分出：192.168.0.0/16   注：私网地址只是在私网里有效，在公网里无效。因此，为了能让私网IP能够访问公网IP，就必须进行NAT转换。  NAT术语介绍NAT术语 NAT类型： 静态NAT：私">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="f:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-d2d1c3fb61ff1197d79f9cb5b9791362_hd.jpg">
+<meta property="og:image" content="f:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-5fe1e464b286220c8dbab9d3bc37975e_hd.jpg">
+<meta property="og:image" content="f:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-7785998c95fced42be835d3bd8a03d63_hd.jpg">
+<meta property="og:image" content="f:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-bec296e29c63bf6cd5c6df9db7d10f3f_hd.jpg">
+<meta property="og:image" content="f:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-3072c85c57465ee77468e78f993ccc99_hd.jpg">
+<meta property="og:image" content="f:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-2985148cb3bf012677ea9e9b2bdb13df_hd.jpg">
+<meta property="og:image" content="f:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-9a46c23621c29de9f7943bb2e4fc6fd4_hd.jpg">
+<meta property="og:image" content="f:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-ec24d033a4aa8fe258c1071c45f68433_hd.jpg">
+<meta property="og:image" content="f:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-a80b51dce79a09c0b4b3d9ae085b83cf_hd.jpg">
+<meta property="og:image" content="f:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-d032dffe0b22f6503b0f52a7329810a7_hd.jpg">
+<meta property="og:image" content="f:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-616a49efa9ad577e1cee99d983028b04_hd.jpg">
+<meta property="og:image" content="f:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-4271f04fd8b2ba1ea3f582259160f5ad_hd.jpg">
+<meta property="og:image" content="f:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-a91c359a49dfd82443e0a00614c9e267_hd.jpg">
+<meta property="og:image" content="f:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-5abdb54e907de11091d0a5ee7f7e4ba2_hd.jpg">
+<meta property="og:updated_time" content="2019-08-21T08:28:09.827Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="NAT网络地址转换 为了解决IPV4地址不够的问题，我们采用私有地址和公网地址来进行暂时缓解地址不够的压力。  私有地址：  A类分出：10.0.0.0/8B类分出：172.16.0.0/12C类分出：192.168.0.0/16   注：私网地址只是在私网里有效，在公网里无效。因此，为了能让私网IP能够访问公网IP，就必须进行NAT转换。  NAT术语介绍NAT术语 NAT类型： 静态NAT：私">
+<meta name="twitter:image" content="f:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-d2d1c3fb61ff1197d79f9cb5b9791362_hd.jpg">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="Hexo" rel="home">Hexo</a>
+      </h1>
+      
+        <h2 class="site-description hitokoto"></h2>
+        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-NAT地址转换" class="post-NAT地址转换 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/11/05/NAT地址转换/" data-id="ck2lmtwfv0000o8w0mcbvtj2u" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="NAT网络地址转换"><a href="#NAT网络地址转换" class="headerlink" title="NAT网络地址转换"></a>NAT网络地址转换</h1><blockquote>
+<p><strong>为了解决IPV4地址不够的问题，我们采用私有地址和公网地址来进行暂时缓解地址不够的压力。</strong></p>
+</blockquote>
+<p>私有地址：</p>
+<blockquote>
+<p>A类分出：10.0.0.0/8<br>B类分出：172.16.0.0/12<br>C类分出：192.168.0.0/16</p>
+</blockquote>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-d2d1c3fb61ff1197d79f9cb5b9791362_hd.jpg" alt="img"></p>
+<p><strong>注：私网地址只是在私网里有效，在公网里无效。因此，为了能让私网IP能够访问公网IP，就必须进行NAT转换。</strong></p>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-5fe1e464b286220c8dbab9d3bc37975e_hd.jpg" alt="img"></p>
+<h2 id="NAT术语介绍"><a href="#NAT术语介绍" class="headerlink" title="NAT术语介绍"></a>NAT术语介绍</h2><p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-7785998c95fced42be835d3bd8a03d63_hd.jpg" alt="img">NAT术语</p>
+<h2 id="NAT类型："><a href="#NAT类型：" class="headerlink" title="NAT类型："></a><strong>NAT类型：</strong></h2><blockquote>
+<p>静态NAT：私网和公网IP一对一映射，一旦确定，即便不用也其他私网IP也不能再使用改公网IP地址。<br>动态NAT：私网和公网IP池进行一对一映射，免去了人为的配置，同时可以让有限的公网IP地址能够重复使用，但依旧是一个私网IP对应一                  个公网IP地址。<br>PAT：       真正实现多对一的映射，一个私网IP对应一个公网IP+端口号，因此端口不同，一个公网IP就能被多个私网IP地址使用。</p>
+</blockquote>
+<h3 id="静态NAT："><a href="#静态NAT：" class="headerlink" title="静态NAT："></a><strong><em>静态NAT：</em></strong></h3><p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-bec296e29c63bf6cd5c6df9db7d10f3f_hd.jpg" alt="img">静态NAT介绍</p>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-3072c85c57465ee77468e78f993ccc99_hd.jpg" alt="img"></p>
+<h3 id="动态NAT："><a href="#动态NAT：" class="headerlink" title="动态NAT："></a><strong>动态NAT：</strong></h3><p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-2985148cb3bf012677ea9e9b2bdb13df_hd.jpg" alt="img">动态NAT介绍</p>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-9a46c23621c29de9f7943bb2e4fc6fd4_hd.jpg" alt="img"></p>
+<h3 id="PAT："><a href="#PAT：" class="headerlink" title="PAT："></a><strong>PAT：</strong></h3><p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-ec24d033a4aa8fe258c1071c45f68433_hd.jpg" alt="img">PAT的介绍</p>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-a80b51dce79a09c0b4b3d9ae085b83cf_hd.jpg" alt="img"></p>
+<h2 id="三种方式的配置方法："><a href="#三种方式的配置方法：" class="headerlink" title="三种方式的配置方法："></a>三种方式的配置方法：</h2><h3 id="配置静态NAT："><a href="#配置静态NAT：" class="headerlink" title="配置静态NAT："></a><strong>配置静态NAT：</strong></h3><blockquote>
+<p>1、声明要配置一个静态NAT：ip nat inside source static <em>local-ip global-ip</em><br>2、为路由器接口声明内外网接口：<br>2.1为面向源地址的私网接口声明：ip nat inside<br>2.2为面向目的地址的公网接口声明：ip nat outside</p>
+</blockquote>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-d032dffe0b22f6503b0f52a7329810a7_hd.jpg" alt="img"></p>
+<h3 id="配置动态NAT："><a href="#配置动态NAT：" class="headerlink" title="配置动态NAT："></a><strong>配置动态NAT：</strong></h3><blockquote>
+<p>1、声明一个内部全局地址池：ip nat pool name <em>stat-ip end-ip</em><br><em>2、*声明一个ACL去控制私网转换权限，只有满足ACl的私网IP才能去使用定义的全局地址池里的公网IP地址：access-list *access-list-number</em> permit source 【souece-wildcard】<br>3、同样给内部本地接口去声明一下ACl和本地全局池：ip nat inside source list <em>access-list-number</em> pool <em>name</em><br><em>4、同样地给</em>路由器接口声明内外网接口：同静态NAT的操作</p>
+</blockquote>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-616a49efa9ad577e1cee99d983028b04_hd.jpg" alt="img"></p>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-4271f04fd8b2ba1ea3f582259160f5ad_hd.jpg" alt="img">实例配置动态NAT</p>
+<h3 id="配置PAT："><a href="#配置PAT：" class="headerlink" title="配置PAT："></a><strong>配置PAT：</strong></h3><blockquote>
+<p>1、定义内网能够允许外网的源地址段（ACL）：access-list a<em>ccess-list-number</em> permit source <em>souece-wildcard</em><br>2、将ACL关联到外网接口上去：ip nat inside source list a<em>ccess-list-number</em> interface <em>interface</em> <strong>overlord</strong><br>3、之后为路由器声明私网和公网的接口：同静态NAT的配置方法</p>
+</blockquote>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-a91c359a49dfd82443e0a00614c9e267_hd.jpg" alt="img"></p>
+<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-5abdb54e907de11091d0a5ee7f7e4ba2_hd.jpg" alt="img">实例配置PAT</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/11/05/NAT地址转换/">
+    <time datetime="2019-11-05T09:07:16.382Z" class="entry-date">
+        2019-11-05
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2019/09/02/Cisco Packet Tracer介绍与思科设备的基本配置/" rel="next">(no title) <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2019/11/05/NAT地址转换/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/02/Cisco Packet Tracer介绍与思科设备的基本配置/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/02/github博客搭建/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/02/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2019 John Doe
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

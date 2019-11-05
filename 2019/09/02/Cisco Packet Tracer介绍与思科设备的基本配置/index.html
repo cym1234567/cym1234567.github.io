@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="Cisco Packet Tracer介绍与思科设备的基本配置一、PT介绍及思科的基本操作命令1、PT介绍（界面、路由器、交换机、线缆、工具…..）
+双绞线：直通线、交叉线、全反线（CONSOLE线）
+线序标准：
+​        T568B：橙白 橙  绿白 蓝 蓝白 绿 棕白 棕
+​      ">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Cisco Packet Tracer介绍与思科设备的基本配置一、PT介绍及思科的基本操作命令1、PT介绍（界面、路由器、交换机、线缆、工具…..） 双绞线：直通线、交叉线、全反线（CONSOLE线） 线序标准： ​        T568B：橙白 橙  绿白 蓝 蓝白 绿 棕白 棕 ​        T568A：绿白 绿  橙白 蓝 蓝白 橙 棕白 棕 直通线：T568B-T568B    T5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/09/02/Cisco Packet Tracer介绍与思科设备的基本配置/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Cisco Packet Tracer介绍与思科设备的基本配置一、PT介绍及思科的基本操作命令1、PT介绍（界面、路由器、交换机、线缆、工具…..） 双绞线：直通线、交叉线、全反线（CONSOLE线） 线序标准： ​        T568B：橙白 橙  绿白 蓝 蓝白 绿 棕白 棕 ​        T568A：绿白 绿  橙白 蓝 蓝白 橙 棕白 棕 直通线：T568B-T568B    T5">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps1.jpg">
+<meta property="og:image" content="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps2.jpg">
+<meta property="og:image" content="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps3.jpg">
+<meta property="og:image" content="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps4.jpg">
+<meta property="og:image" content="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps5.jpg">
+<meta property="og:image" content="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps6.jpg">
+<meta property="og:image" content="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps7.jpg">
+<meta property="og:image" content="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps8.jpg">
+<meta property="og:image" content="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps9.jpg">
+<meta property="og:image" content="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps10.jpg">
+<meta property="og:image" content="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps11.jpg">
+<meta property="og:updated_time" content="2019-08-05T06:47:27.418Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="Cisco Packet Tracer介绍与思科设备的基本配置一、PT介绍及思科的基本操作命令1、PT介绍（界面、路由器、交换机、线缆、工具…..） 双绞线：直通线、交叉线、全反线（CONSOLE线） 线序标准： ​        T568B：橙白 橙  绿白 蓝 蓝白 绿 棕白 棕 ​        T568A：绿白 绿  橙白 蓝 蓝白 橙 棕白 棕 直通线：T568B-T568B    T5">
+<meta name="twitter:image" content="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps1.jpg">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="Hexo" rel="home">Hexo</a>
+      </h1>
+      
+        <h2 class="site-description hitokoto"></h2>
+        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-Cisco Packet Tracer介绍与思科设备的基本配置" class="post-Cisco Packet Tracer介绍与思科设备的基本配置 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/09/02/Cisco Packet Tracer介绍与思科设备的基本配置/" data-id="ck02eusf30002pgw0tqgpbxwq" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="Cisco-Packet-Tracer介绍与思科设备的基本配置"><a href="#Cisco-Packet-Tracer介绍与思科设备的基本配置" class="headerlink" title="Cisco Packet Tracer介绍与思科设备的基本配置"></a>Cisco Packet Tracer介绍与思科设备的基本配置</h1><h2 id="一、PT介绍及思科的基本操作命令"><a href="#一、PT介绍及思科的基本操作命令" class="headerlink" title="一、PT介绍及思科的基本操作命令"></a><strong>一、PT介绍及思科的基本操作命令</strong></h2><p>1、PT介绍（界面、路由器、交换机、线缆、工具…..）</p>
+<p>双绞线：直通线、交叉线、全反线（CONSOLE线）</p>
+<p>线序标准：</p>
+<p>​        T568B：橙白 橙  绿白 蓝 蓝白 绿 棕白 棕</p>
+<p>​        T568A：绿白 绿  橙白 蓝 蓝白 橙 棕白 棕</p>
+<p>直通线：T568B-T568B    T568A-T568A</p>
+<p><strong>不同种设备</strong>相连（模拟器不支持自适应）</p>
+<p>​           交换机–路由器  路由器–集线器  交换机–PC机</p>
+<p>​    交叉线：568A–568B 同种设备相连</p>
+<p>​           交换机–交换机  路由器–路由器 交换机–集线器</p>
+<p>全反线：（CONSOLE线）</p>
+<p>2、设备的连接</p>
+<p>3、路由器的开机过程：</p>
+<p>开机过程：加电自检–从flash查找和装载IOS–从NVROM（非易失性                      </p>
+<p>存储器）里加载启动配置文件—是否进入配置向导–</p>
+<p>​                            直接进入配置模式</p>
+<p>配置文件：startupconfig   runningconfig</p>
+<p>启动配置文件   运行配置文件</p>
+<p>4、基本命令操作：       </p>
+<p>5、  （1）、模式：</p>
+<p>​      Router&gt;用户模式</p>
+<p>​      Router&gt;enable</p>
+<p>​      Router#特权模式</p>
+<p>​      Router#configure terminal </p>
+<p>​      Router(config)#全局配置模式</p>
+<p>​      Router(config)#hostname R1  （配置路由器的名称）</p>
+<p>​      R1(config)#interface FastEthernet 0/0</p>
+<p>​      R1(config-if)#接口模式</p>
+<p>​      R1(config-if)#ip address 192.168.1.1 255.255.255.0 （配置IP地址）</p>
+<p>​      R1(config-if)#no shutdown （开启端口）</p>
+<p>​      两台路由器相连，测试连通性</p>
+<p>​       Router&gt;用户模式</p>
+<p>​       Router&gt;enable</p>
+<p>​       Router#特权模式</p>
+<p>​       Router#configure terminal </p>
+<p>​       Router(config)#全局配置模式</p>
+<p>​       Router(config)#hostname R2  （配置路由器的名称）</p>
+<p>​       R2(config)#interface FastEthernet 0/0</p>
+<p>​       R2(config-if)#接口模式</p>
+<p>​       R2(config-if)#ip address 192.168.1.2 255.255.255.0 （配置IP地址）</p>
+<p>​       R2(config-if)#no shutdown （开启端口）</p>
+<p>​       使用ping命令测试通信：如果通信用!!!表示，不通用…表示</p>
+<p>​           R1(config-if)#接口模式</p>
+<p>​           R1(config-if)#exit  退出当前模式，返回上一级模式</p>
+<p>​           R1(config)#全局配置模式</p>
+<p>​           R1(config)#exit</p>
+<p>​           R1#特权模式</p>
+<p>​           R1#ping 192.168.1.1 </p>
+<p>​        –输入end（或ctrl+c或ctrl+z）直接返回到特权模式—————–</p>
+<p>​            R1(config-if)#end</p>
+<p>​            R1#特权模式</p>
+<p>​        -——————————————</p>
+<p>   （2）命令支持简写</p>
+<p>   （3）帮助功能</p>
+<p>   （4）tab补全命令</p>
+<p>   （5）给设备配置密码：防止别人非法更改我设备的配置</p>
+<p>​       </p>
+<p>​      为特权模式配置明文密码</p>
+<p>​       R1(config)#enable password 123456   明文密码</p>
+<p>​       R1(config)#show running-config   可以查看密码</p>
+<p>​       Current configuration : 565 bytes  配置文件大小可以判断是否更改设备配置</p>
+<p>​      为特权模式配置密文密码</p>
+<p>​       R1(config)#enable secret 123456   明文密码</p>
+<p>​       R1(config)#show running-config   可以查看密码</p>
+<p>​       两个密码同时配置时，加密的密码生效。</p>
+<p>   （6）保存配置文件</p>
+<p>​       R1#copy <strong>running-config</strong> startup-config  </p>
+<p>​       或  R1#write</p>
+<p>​              </p>
+<p>   （7）查看命令</p>
+<p>​        R1#show ip interface brief  查看接口摘要信息</p>
+<p>​        R1#show running-config      查年当前的运行配置文件</p>
+<p>​        R1#show startup-config      查看启动配置文件</p>
+<p>   （8）重启设备：</p>
+<p>​        R1#reload</p>
+<p>​     </p>
+<p>模式：</p>
+<p>enable (en)  configure terminal(config t)   interface fastEthernet 0/1(int f0/1)</p>
+<p>Show</p>
+<p>running-config    startup-config</p>
+<p>copy runing-config startup-config 或 write(w)</p>
+<p>Ip add 192.168.10.1 255.255.255.0</p>
+<p>no shutdown</p>
+<p>reload</p>
+<h2 id="二、路由器与交换机的管理"><a href="#二、路由器与交换机的管理" class="headerlink" title="二、路由器与交换机的管理"></a><strong>二、路由器与交换机的管理</strong></h2><p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps1.jpg" alt="img"> </p>
+<p> （1）通过带外方式对设备进行管理</p>
+<p> （2）通过Telnet对设备进行远程管理</p>
+<p> （3）通过Web对设备进行远程管理</p>
+<p> （4）通过SNMP管理工作站对设备进行远程管理</p>
+<h3 id="实验1-交换机基本配置"><a href="#实验1-交换机基本配置" class="headerlink" title="实验1  交换机基本配置"></a><strong>实验1  交换机基本配置</strong></h3><p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps2.jpg" alt="img"></p>
+<p>（1）硬件的连接</p>
+<p>（2）软件的设置</p>
+<p>（3）交换机的基本配置</p>
+<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps3.jpg" alt="img"> </p>
+<p>终端配置窗口</p>
+<p>Switch&gt;enable                            /由用户模式进入特权模式</p>
+<p>Switch#configure terminal                  /进入全局配置模式</p>
+<p>Switch(config)#hostname sw2960           /设置提示符为sw2960</p>
+<p>sw2960(config)#interface fastEthernet 0/1    /进入端口配置模式</p>
+<p>sw2960(config-if)#exit                    /退出端口配置模式，回到全局配置模式</p>
+<p>sw2960(config)#ex                  /使用简写命令退出全局配置模式，回到特权模式</p>
+<p>sw2960#?                              /显示当前模式下可用的命令</p>
+<p>sw2960#write                        /将当前运行时配置参数保存到Flash Memory</p>
+<p>sw2960#reload                       /重新启动交换机</p>
+<h3 id="实验2-Telnet的配置与实现"><a href="#实验2-Telnet的配置与实现" class="headerlink" title="实验2  Telnet的配置与实现"></a><strong>实验2  Telnet的配置与实现</strong></h3><p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps4.jpg" alt="img"> </p>
+<p>（1）硬件的连接</p>
+<p>（2）软件的设置</p>
+<p>（3）交换机Telnet的配置</p>
+<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps5.jpg" alt="img"> </p>
+<p>设置PC的IP地址</p>
+<p>Switch&gt;en                     /enable命令的简写，以下命令中多处采用命令简写</p>
+<p>Switch#conf t</p>
+<p>Switch(config)#int vlan 1</p>
+<p>Switch(config-if)#ip add 192.168.1.1 255.255.255.0        /设置管理交换机的IP地址</p>
+<p>Switch(config-if)#no shut                             /启用接口</p>
+<p>Switch(config-if)#ex</p>
+<p>Switch(config)#enable secret 0 1234  (密文密码)    /配置进入特权模式的密码为1234</p>
+<p>​          enable passwrod 1234  (明文密码)  如果两个密码都设置了，密文密码生效</p>
+<p>Switch(config)#line vty 0 4                       /进入VTY端口</p>
+<p>Switch(config-line)#password 4321                /设置Telnet的登录密码为4321</p>
+<p>Switch(config-line)#login                        /允许Telnet登录</p>
+<p>4．验证</p>
+<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps6.jpg" alt="img"> </p>
+<p><strong>遇到的问题及解决办法：</strong></p>
+<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps7.jpg" alt="img"> </p>
+<p>原因：是将命令当成了域名进行解析</p>
+<p>解决办法：在全局模式下输入：no ip domain-lookup（取消域名搜索）</p>
+<p>​                            Ctrl+shift+6</p>
+<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps8.jpg" alt="img"> </p>
+<p>表示输入的命令是错误的</p>
+<p><strong>思考：如何实现在任意PC机上都可以远程管理设备？</strong></p>
+<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps9.jpg" alt="img"> </p>
+<h3 id="实验3-IOS的升级"><a href="#实验3-IOS的升级" class="headerlink" title="实验3  IOS的升级"></a><strong>实验3  IOS的升级</strong></h3><p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps10.jpg" alt="img"> </p>
+<p>1．硬件的连接</p>
+<p>2．软件的设置</p>
+<p>3．交换机的配置</p>
+<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps11.jpg" alt="img"> </p>
+<p><strong>升级IOS：</strong></p>
+<p>Switch#copy tftp: flash: </p>
+<p>Address or name of remote host []? 192.168.0.3</p>
+<p>Source filename []? </p>
+<p><strong>备份IOS：</strong></p>
+<p>Switch#show flash</p>
+<p>Switch#copy flash: tftp: </p>
+<p>Source filename []? runningcof</p>
+<p>Address or name of remote host []? 192.168.0.3</p>
+<p>Destination filename [runningcof]? </p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/09/02/Cisco Packet Tracer介绍与思科设备的基本配置/">
+    <time datetime="2019-09-02T12:59:25.355Z" class="entry-date">
+        2019-09-02
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2019/11/05/NAT地址转换/" rel="prev"><span class="meta-nav">←</span> (no title)</a></span>
+    
+    
+        <span class="nav-next"><a href="/2019/09/02/github博客搭建/" rel="next">(no title) <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2019/11/05/NAT地址转换/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/02/Cisco Packet Tracer介绍与思科设备的基本配置/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/02/github博客搭建/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/02/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2019 John Doe
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
