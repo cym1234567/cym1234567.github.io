@@ -62,255 +62,6 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
-    <article id="post-NAT地址转换" class="post-NAT地址转换 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/11/05/NAT地址转换/" data-id="ck2lmtwfv0000o8w0mcbvtj2u" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h1 id="NAT网络地址转换"><a href="#NAT网络地址转换" class="headerlink" title="NAT网络地址转换"></a>NAT网络地址转换</h1><blockquote>
-<p><strong>为了解决IPV4地址不够的问题，我们采用私有地址和公网地址来进行暂时缓解地址不够的压力。</strong></p>
-</blockquote>
-<p>私有地址：</p>
-<blockquote>
-<p>A类分出：10.0.0.0/8<br>B类分出：172.16.0.0/12<br>C类分出：192.168.0.0/16</p>
-</blockquote>
-<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-d2d1c3fb61ff1197d79f9cb5b9791362_hd.jpg" alt="img"></p>
-<p><strong>注：私网地址只是在私网里有效，在公网里无效。因此，为了能让私网IP能够访问公网IP，就必须进行NAT转换。</strong></p>
-<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-5fe1e464b286220c8dbab9d3bc37975e_hd.jpg" alt="img"></p>
-<h2 id="NAT术语介绍"><a href="#NAT术语介绍" class="headerlink" title="NAT术语介绍"></a>NAT术语介绍</h2><p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-7785998c95fced42be835d3bd8a03d63_hd.jpg" alt="img">NAT术语</p>
-<h2 id="NAT类型："><a href="#NAT类型：" class="headerlink" title="NAT类型："></a><strong>NAT类型：</strong></h2><blockquote>
-<p>静态NAT：私网和公网IP一对一映射，一旦确定，即便不用也其他私网IP也不能再使用改公网IP地址。<br>动态NAT：私网和公网IP池进行一对一映射，免去了人为的配置，同时可以让有限的公网IP地址能够重复使用，但依旧是一个私网IP对应一                  个公网IP地址。<br>PAT：       真正实现多对一的映射，一个私网IP对应一个公网IP+端口号，因此端口不同，一个公网IP就能被多个私网IP地址使用。</p>
-</blockquote>
-<h3 id="静态NAT："><a href="#静态NAT：" class="headerlink" title="静态NAT："></a><strong><em>静态NAT：</em></strong></h3><p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-bec296e29c63bf6cd5c6df9db7d10f3f_hd.jpg" alt="img">静态NAT介绍</p>
-<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-3072c85c57465ee77468e78f993ccc99_hd.jpg" alt="img"></p>
-<h3 id="动态NAT："><a href="#动态NAT：" class="headerlink" title="动态NAT："></a><strong>动态NAT：</strong></h3><p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-2985148cb3bf012677ea9e9b2bdb13df_hd.jpg" alt="img">动态NAT介绍</p>
-<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-9a46c23621c29de9f7943bb2e4fc6fd4_hd.jpg" alt="img"></p>
-<h3 id="PAT："><a href="#PAT：" class="headerlink" title="PAT："></a><strong>PAT：</strong></h3><p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-ec24d033a4aa8fe258c1071c45f68433_hd.jpg" alt="img">PAT的介绍</p>
-<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-a80b51dce79a09c0b4b3d9ae085b83cf_hd.jpg" alt="img"></p>
-<h2 id="三种方式的配置方法："><a href="#三种方式的配置方法：" class="headerlink" title="三种方式的配置方法："></a>三种方式的配置方法：</h2><h3 id="配置静态NAT："><a href="#配置静态NAT：" class="headerlink" title="配置静态NAT："></a><strong>配置静态NAT：</strong></h3><blockquote>
-<p>1、声明要配置一个静态NAT：ip nat inside source static <em>local-ip global-ip</em><br>2、为路由器接口声明内外网接口：<br>2.1为面向源地址的私网接口声明：ip nat inside<br>2.2为面向目的地址的公网接口声明：ip nat outside</p>
-</blockquote>
-<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-d032dffe0b22f6503b0f52a7329810a7_hd.jpg" alt="img"></p>
-<h3 id="配置动态NAT："><a href="#配置动态NAT：" class="headerlink" title="配置动态NAT："></a><strong>配置动态NAT：</strong></h3><blockquote>
-<p>1、声明一个内部全局地址池：ip nat pool name <em>stat-ip end-ip</em><br><em>2、*声明一个ACL去控制私网转换权限，只有满足ACl的私网IP才能去使用定义的全局地址池里的公网IP地址：access-list *access-list-number</em> permit source 【souece-wildcard】<br>3、同样给内部本地接口去声明一下ACl和本地全局池：ip nat inside source list <em>access-list-number</em> pool <em>name</em><br><em>4、同样地给</em>路由器接口声明内外网接口：同静态NAT的操作</p>
-</blockquote>
-<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-616a49efa9ad577e1cee99d983028b04_hd.jpg" alt="img"></p>
-<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-4271f04fd8b2ba1ea3f582259160f5ad_hd.jpg" alt="img">实例配置动态NAT</p>
-<h3 id="配置PAT："><a href="#配置PAT：" class="headerlink" title="配置PAT："></a><strong>配置PAT：</strong></h3><blockquote>
-<p>1、定义内网能够允许外网的源地址段（ACL）：access-list a<em>ccess-list-number</em> permit source <em>souece-wildcard</em><br>2、将ACL关联到外网接口上去：ip nat inside source list a<em>ccess-list-number</em> interface <em>interface</em> <strong>overlord</strong><br>3、之后为路由器声明私网和公网的接口：同静态NAT的配置方法</p>
-</blockquote>
-<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-a91c359a49dfd82443e0a00614c9e267_hd.jpg" alt="img"></p>
-<p><img src="F:%5C%E7%9F%A5%E4%BA%86%E5%A0%82%E5%AD%A6%E4%B9%A0%5C%E7%AC%94%E8%AE%B0%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%5Cassets%5Cv2-5abdb54e907de11091d0a5ee7f7e4ba2_hd.jpg" alt="img">实例配置PAT</p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2019/11/05/NAT地址转换/">
-    <time datetime="2019-11-05T09:07:16.382Z" class="entry-date">
-        2019-11-05
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-Cisco Packet Tracer介绍与思科设备的基本配置" class="post-Cisco Packet Tracer介绍与思科设备的基本配置 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/09/02/Cisco Packet Tracer介绍与思科设备的基本配置/" data-id="ck02eusf30002pgw0tqgpbxwq" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h1 id="Cisco-Packet-Tracer介绍与思科设备的基本配置"><a href="#Cisco-Packet-Tracer介绍与思科设备的基本配置" class="headerlink" title="Cisco Packet Tracer介绍与思科设备的基本配置"></a>Cisco Packet Tracer介绍与思科设备的基本配置</h1><h2 id="一、PT介绍及思科的基本操作命令"><a href="#一、PT介绍及思科的基本操作命令" class="headerlink" title="一、PT介绍及思科的基本操作命令"></a><strong>一、PT介绍及思科的基本操作命令</strong></h2><p>1、PT介绍（界面、路由器、交换机、线缆、工具…..）</p>
-<p>双绞线：直通线、交叉线、全反线（CONSOLE线）</p>
-<p>线序标准：</p>
-<p>​        T568B：橙白 橙  绿白 蓝 蓝白 绿 棕白 棕</p>
-<p>​        T568A：绿白 绿  橙白 蓝 蓝白 橙 棕白 棕</p>
-<p>直通线：T568B-T568B    T568A-T568A</p>
-<p><strong>不同种设备</strong>相连（模拟器不支持自适应）</p>
-<p>​           交换机–路由器  路由器–集线器  交换机–PC机</p>
-<p>​    交叉线：568A–568B 同种设备相连</p>
-<p>​           交换机–交换机  路由器–路由器 交换机–集线器</p>
-<p>全反线：（CONSOLE线）</p>
-<p>2、设备的连接</p>
-<p>3、路由器的开机过程：</p>
-<p>开机过程：加电自检–从flash查找和装载IOS–从NVROM（非易失性                      </p>
-<p>存储器）里加载启动配置文件—是否进入配置向导–</p>
-<p>​                            直接进入配置模式</p>
-<p>配置文件：startupconfig   runningconfig</p>
-<p>启动配置文件   运行配置文件</p>
-<p>4、基本命令操作：       </p>
-<p>5、  （1）、模式：</p>
-<p>​      Router&gt;用户模式</p>
-<p>​      Router&gt;enable</p>
-<p>​      Router#特权模式</p>
-<p>​      Router#configure terminal </p>
-<p>​      Router(config)#全局配置模式</p>
-<p>​      Router(config)#hostname R1  （配置路由器的名称）</p>
-<p>​      R1(config)#interface FastEthernet 0/0</p>
-<p>​      R1(config-if)#接口模式</p>
-<p>​      R1(config-if)#ip address 192.168.1.1 255.255.255.0 （配置IP地址）</p>
-<p>​      R1(config-if)#no shutdown （开启端口）</p>
-<p>​      两台路由器相连，测试连通性</p>
-<p>​       Router&gt;用户模式</p>
-<p>​       Router&gt;enable</p>
-<p>​       Router#特权模式</p>
-<p>​       Router#configure terminal </p>
-<p>​       Router(config)#全局配置模式</p>
-<p>​       Router(config)#hostname R2  （配置路由器的名称）</p>
-<p>​       R2(config)#interface FastEthernet 0/0</p>
-<p>​       R2(config-if)#接口模式</p>
-<p>​       R2(config-if)#ip address 192.168.1.2 255.255.255.0 （配置IP地址）</p>
-<p>​       R2(config-if)#no shutdown （开启端口）</p>
-<p>​       使用ping命令测试通信：如果通信用!!!表示，不通用…表示</p>
-<p>​           R1(config-if)#接口模式</p>
-<p>​           R1(config-if)#exit  退出当前模式，返回上一级模式</p>
-<p>​           R1(config)#全局配置模式</p>
-<p>​           R1(config)#exit</p>
-<p>​           R1#特权模式</p>
-<p>​           R1#ping 192.168.1.1 </p>
-<p>​        –输入end（或ctrl+c或ctrl+z）直接返回到特权模式—————–</p>
-<p>​            R1(config-if)#end</p>
-<p>​            R1#特权模式</p>
-<p>​        -——————————————</p>
-<p>   （2）命令支持简写</p>
-<p>   （3）帮助功能</p>
-<p>   （4）tab补全命令</p>
-<p>   （5）给设备配置密码：防止别人非法更改我设备的配置</p>
-<p>​       </p>
-<p>​      为特权模式配置明文密码</p>
-<p>​       R1(config)#enable password 123456   明文密码</p>
-<p>​       R1(config)#show running-config   可以查看密码</p>
-<p>​       Current configuration : 565 bytes  配置文件大小可以判断是否更改设备配置</p>
-<p>​      为特权模式配置密文密码</p>
-<p>​       R1(config)#enable secret 123456   明文密码</p>
-<p>​       R1(config)#show running-config   可以查看密码</p>
-<p>​       两个密码同时配置时，加密的密码生效。</p>
-<p>   （6）保存配置文件</p>
-<p>​       R1#copy <strong>running-config</strong> startup-config  </p>
-<p>​       或  R1#write</p>
-<p>​              </p>
-<p>   （7）查看命令</p>
-<p>​        R1#show ip interface brief  查看接口摘要信息</p>
-<p>​        R1#show running-config      查年当前的运行配置文件</p>
-<p>​        R1#show startup-config      查看启动配置文件</p>
-<p>   （8）重启设备：</p>
-<p>​        R1#reload</p>
-<p>​     </p>
-<p>模式：</p>
-<p>enable (en)  configure terminal(config t)   interface fastEthernet 0/1(int f0/1)</p>
-<p>Show</p>
-<p>running-config    startup-config</p>
-<p>copy runing-config startup-config 或 write(w)</p>
-<p>Ip add 192.168.10.1 255.255.255.0</p>
-<p>no shutdown</p>
-<p>reload</p>
-<h2 id="二、路由器与交换机的管理"><a href="#二、路由器与交换机的管理" class="headerlink" title="二、路由器与交换机的管理"></a><strong>二、路由器与交换机的管理</strong></h2><p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps1.jpg" alt="img"> </p>
-<p> （1）通过带外方式对设备进行管理</p>
-<p> （2）通过Telnet对设备进行远程管理</p>
-<p> （3）通过Web对设备进行远程管理</p>
-<p> （4）通过SNMP管理工作站对设备进行远程管理</p>
-<h3 id="实验1-交换机基本配置"><a href="#实验1-交换机基本配置" class="headerlink" title="实验1  交换机基本配置"></a><strong>实验1  交换机基本配置</strong></h3><p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps2.jpg" alt="img"></p>
-<p>（1）硬件的连接</p>
-<p>（2）软件的设置</p>
-<p>（3）交换机的基本配置</p>
-<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps3.jpg" alt="img"> </p>
-<p>终端配置窗口</p>
-<p>Switch&gt;enable                            /由用户模式进入特权模式</p>
-<p>Switch#configure terminal                  /进入全局配置模式</p>
-<p>Switch(config)#hostname sw2960           /设置提示符为sw2960</p>
-<p>sw2960(config)#interface fastEthernet 0/1    /进入端口配置模式</p>
-<p>sw2960(config-if)#exit                    /退出端口配置模式，回到全局配置模式</p>
-<p>sw2960(config)#ex                  /使用简写命令退出全局配置模式，回到特权模式</p>
-<p>sw2960#?                              /显示当前模式下可用的命令</p>
-<p>sw2960#write                        /将当前运行时配置参数保存到Flash Memory</p>
-<p>sw2960#reload                       /重新启动交换机</p>
-<h3 id="实验2-Telnet的配置与实现"><a href="#实验2-Telnet的配置与实现" class="headerlink" title="实验2  Telnet的配置与实现"></a><strong>实验2  Telnet的配置与实现</strong></h3><p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps4.jpg" alt="img"> </p>
-<p>（1）硬件的连接</p>
-<p>（2）软件的设置</p>
-<p>（3）交换机Telnet的配置</p>
-<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps5.jpg" alt="img"> </p>
-<p>设置PC的IP地址</p>
-<p>Switch&gt;en                     /enable命令的简写，以下命令中多处采用命令简写</p>
-<p>Switch#conf t</p>
-<p>Switch(config)#int vlan 1</p>
-<p>Switch(config-if)#ip add 192.168.1.1 255.255.255.0        /设置管理交换机的IP地址</p>
-<p>Switch(config-if)#no shut                             /启用接口</p>
-<p>Switch(config-if)#ex</p>
-<p>Switch(config)#enable secret 0 1234  (密文密码)    /配置进入特权模式的密码为1234</p>
-<p>​          enable passwrod 1234  (明文密码)  如果两个密码都设置了，密文密码生效</p>
-<p>Switch(config)#line vty 0 4                       /进入VTY端口</p>
-<p>Switch(config-line)#password 4321                /设置Telnet的登录密码为4321</p>
-<p>Switch(config-line)#login                        /允许Telnet登录</p>
-<p>4．验证</p>
-<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps6.jpg" alt="img"> </p>
-<p><strong>遇到的问题及解决办法：</strong></p>
-<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps7.jpg" alt="img"> </p>
-<p>原因：是将命令当成了域名进行解析</p>
-<p>解决办法：在全局模式下输入：no ip domain-lookup（取消域名搜索）</p>
-<p>​                            Ctrl+shift+6</p>
-<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps8.jpg" alt="img"> </p>
-<p>表示输入的命令是错误的</p>
-<p><strong>思考：如何实现在任意PC机上都可以远程管理设备？</strong></p>
-<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps9.jpg" alt="img"> </p>
-<h3 id="实验3-IOS的升级"><a href="#实验3-IOS的升级" class="headerlink" title="实验3  IOS的升级"></a><strong>实验3  IOS的升级</strong></h3><p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps10.jpg" alt="img"> </p>
-<p>1．硬件的连接</p>
-<p>2．软件的设置</p>
-<p>3．交换机的配置</p>
-<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml7144%5Cwps11.jpg" alt="img"> </p>
-<p><strong>升级IOS：</strong></p>
-<p>Switch#copy tftp: flash: </p>
-<p>Address or name of remote host []? 192.168.0.3</p>
-<p>Source filename []? </p>
-<p><strong>备份IOS：</strong></p>
-<p>Switch#show flash</p>
-<p>Switch#copy flash: tftp: </p>
-<p>Source filename []? runningcof</p>
-<p>Address or name of remote host []? 192.168.0.3</p>
-<p>Destination filename [runningcof]? </p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2019/09/02/Cisco Packet Tracer介绍与思科设备的基本配置/">
-    <time datetime="2019-09-02T12:59:25.355Z" class="entry-date">
-        2019-09-02
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
     <article id="post-github博客搭建" class="post-github博客搭建 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -318,7 +69,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/09/02/github博客搭建/" data-id="ck02eiy6b0001pgw0dnnh2860" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/09/02/github博客搭建/" data-id="ck2q2ladq0001l8w013ggtltg" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -459,7 +210,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/09/02/hello-world/" data-id="ck02ed8nb0000pgw0tqilexya" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/09/02/hello-world/" data-id="ck2q2la5j0000l8w07fbtwpps" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -520,14 +271,6 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget-content">
       <ul>
-        
-          <li>
-            <a href="/2019/11/05/NAT地址转换/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/02/Cisco Packet Tracer介绍与思科设备的基本配置/">(no title)</a>
-          </li>
         
           <li>
             <a href="/2019/09/02/github博客搭建/">(no title)</a>
