@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="title:linux的基本用法
+
+Linux系统的优势：多用户、多任务的系统、安全性更高、开源免费，它将所有的目录和文件数据组织为一个树型的目录结构，整个系统中只存在一个根目录，所有的分区、目录、文件都在同一个根目录下面放
+1、命令提示符[root@localhost~]# 
+root:当前登录的">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="title:linux的基本用法  Linux系统的优势：多用户、多任务的系统、安全性更高、开源免费，它将所有的目录和文件数据组织为一个树型的目录结构，整个系统中只存在一个根目录，所有的分区、目录、文件都在同一个根目录下面放 1、命令提示符[root@localhost~]#  root:当前登录的用户名  localhost：本机的主机名  :用户当前所在目录，代表家目录  root 用户的家目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/12/08/linux的基本用法/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="title:linux的基本用法  Linux系统的优势：多用户、多任务的系统、安全性更高、开源免费，它将所有的目录和文件数据组织为一个树型的目录结构，整个系统中只存在一个根目录，所有的分区、目录、文件都在同一个根目录下面放 1、命令提示符[root@localhost~]#  root:当前登录的用户名  localhost：本机的主机名  :用户当前所在目录，代表家目录  root 用户的家目">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-12-08T13:37:30.721Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="title:linux的基本用法  Linux系统的优势：多用户、多任务的系统、安全性更高、开源免费，它将所有的目录和文件数据组织为一个树型的目录结构，整个系统中只存在一个根目录，所有的分区、目录、文件都在同一个根目录下面放 1、命令提示符[root@localhost~]#  root:当前登录的用户名  localhost：本机的主机名  :用户当前所在目录，代表家目录  root 用户的家目">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="Hexo" rel="home">Hexo</a>
+      </h1>
+      
+        <h2 class="site-description hitokoto"></h2>
+        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-linux的基本用法" class="post-linux的基本用法 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/12/08/linux的基本用法/" data-id="ck3x20xb90001acw0cc1jwljk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>title:linux的基本用法</p>
+<hr>
+<p>Linux系统的优势：多用户、多任务的系统、安全性更高、开源免费，它将所有的目录和文件数据组织为一个树型的目录结构，整个系统中只存在一个根目录，所有的分区、目录、文件都在同一个根目录下面放</p>
+<h5 id="1、命令提示符"><a href="#1、命令提示符" class="headerlink" title="1、命令提示符"></a>1、命令提示符</h5><p>[root@localhost~]# </p>
+<p>root:当前登录的用户名 </p>
+<p>localhost：本机的主机名</p>
+<p> <del>:用户当前所在目录，</del>代表家目录 </p>
+<p>root 用户的家目录是：/root </p>
+<p>普通用户的家目录是：/home </p>
+<p>#：当前登录的用户为管理员用户 </p>
+<p>$：当前登录的用户为普通用户 </p>
+<h5 id="2、切换用户用：su用户名"><a href="#2、切换用户用：su用户名" class="headerlink" title="2、切换用户用：su用户名"></a>2、切换用户用：su用户名</h5><p>由 root 用户切换到普通用户不需要输入密码 </p>
+<p>由普通用户切换到其他用户就必须输入密码</p>
+<h5 id="3、显示当前目录所在的完整路径-pwd"><a href="#3、显示当前目录所在的完整路径-pwd" class="headerlink" title="3、显示当前目录所在的完整路径:pwd"></a>3、显示当前目录所在的完整路径:pwd</h5><h5 id="4、目录切换命令：cd"><a href="#4、目录切换命令：cd" class="headerlink" title="4、目录切换命令：cd"></a>4、目录切换命令：cd</h5><p>cd    /etc    切换到/etc/目录</p>
+<p>cd ..    返回上一级目录</p>
+<p>cd ~    切换到home目录</p>
+<p>cd -    切换到上一次访问的目录</p>
+<p>根目录：/</p>
+<p>家目录：普通用户的家目录在/home下面，root的家目录是/root</p>
+<h5 id="5、绝对路径和相对路径"><a href="#5、绝对路径和相对路径" class="headerlink" title="5、绝对路径和相对路径"></a>5、绝对路径和相对路径</h5><p>相对路径：是当前目录下的某个文件或路径</p>
+<p>绝对路径：是指目录或文件的完整路径</p>
+<h5 id="6、关机和重启"><a href="#6、关机和重启" class="headerlink" title="6、关机和重启"></a>6、关机和重启</h5><p>shutdown -h now    立即关机</p>
+<p>shutdown -h 10    10分钟后关机</p>
+<p>poweroff    立即关机</p>
+<p>shutdown -r now    立即重启</p>
+<p>shutdown -r 10    10分钟后重启</p>
+<p>reboot    立即重启</p>
+<h5 id="7、显示目录内容"><a href="#7、显示目录内容" class="headerlink" title="7、显示目录内容"></a>7、显示目录内容</h5><p>ls:    查看目录中的文件</p>
+<p>ls -a:    显示隐藏文件（以.号开头的文件）</p>
+<p>ls -l或ll:    显示详细文件</p>
+<p>蓝色：目录文件    灰色：普通文件    绿色：可执行文件    红色：压缩文件    线绿色：（链接文件）快捷方式</p>
+<h5 id="8、通配符的使用"><a href="#8、通配符的使用" class="headerlink" title="8、通配符的使用"></a>8、通配符的使用</h5><p>“？”可以匹配文件名中一个任意字符       ls -l /etc/v???</p>
+<p>“*”可以匹配文件名中的任意多个字符        </p>
+<p>ls -l /etc/ns*.conf</p>
+<h5 id="9、创建、删除目录"><a href="#9、创建、删除目录" class="headerlink" title="9、创建、删除目录"></a>9、创建、删除目录</h5><p>mkdir mp3 mp4 mp5    创建3个子目录</p>
+<p>mkdir -p /media/cdrom    创建连续目录</p>
+<p>mkdir -m 775 tesst    创建目录，同时设置权限</p>
+<p>mv mp3 mp4    移动/重命名一个目录</p>
+<p>rm -r mp4    删除询问</p>
+<p>rm -rf mp4    删除不询问</p>
+<h5 id="10、创建、删除文件"><a href="#10、创建、删除文件" class="headerlink" title="10、创建、删除文件"></a>10、创建、删除文件</h5><p>touch 1.txt</p>
+<p>rm 1.txt    删除询问</p>
+<p>rm -f 1.txt    删除不询问</p>
+<h5 id="11、移动和复制文件"><a href="#11、移动和复制文件" class="headerlink" title="11、移动和复制文件"></a>11、移动和复制文件</h5><p>cp 1.txt  2.txt    复制文件    </p>
+<p>cp -r dir1 dir2    复制目录</p>
+<p>mv  dir1 dir2    重命名目录</p>
+<p>mv  /mnt/dir1  /mnt    剪切目录</p>
+<h5 id="12、查看文件内容命令"><a href="#12、查看文件内容命令" class="headerlink" title="12、查看文件内容命令"></a>12、查看文件内容命令</h5><p>cat：看最后一页，不适合查看长文件</p>
+<p>more：百分比显示，回车、空格可以向下一页，q可以结束查看</p>
+<p>less：翻页查看，键盘的上下键翻页，必须按q才能结束查看</p>
+<p>head 10 file1：查看文件的前10行</p>
+<p>tail 10 file1：查看文件的后10行</p>
+<h6 id="wc命令：文件内容的统计"><a href="#wc命令：文件内容的统计" class="headerlink" title="wc命令：文件内容的统计"></a>wc命令：文件内容的统计</h6><p>语法：mc  选项  文件</p>
+<p>-l：统计行数</p>
+<p>-w：统计单词数</p>
+<p>-c：统计字节数</p>
+<h5 id="13、查找命令"><a href="#13、查找命令" class="headerlink" title="13、查找命令"></a>13、查找命令</h5><h6 id="find命令：搜索文件与目录"><a href="#find命令：搜索文件与目录" class="headerlink" title="find命令：搜索文件与目录"></a>find命令：搜索文件与目录</h6><p>作用：是在某个指定的路径下找我们需要的文件或目录，目标是文件或目录</p>
+<p>语法：find [查找范围] [查找条件表达式]</p>
+<p>-name：按名称查找，允许使用通配符</p>
+<p>-type：按文件类型查找文件类型包括：普通文件：f    目录：d    块设备文件：b    字符设备文件：c</p>
+<p>-user：按文件所有者查找，根据文件是否属于某个目标用户进行查找</p>
+<p>-size：按文件大小查找，使用”+”、”-“号设置超过或小于指定的大小</p>
+<p>find  /  -name  file1      从”/“开始进入根文件系统查找文件或目录</p>
+<p>find  .  -type  d  |  sort     查找当前所有目录并排序</p>
+<p>find  /  -user  user1    查找属于用户”user1”的文件和目录</p>
+<p>find  .  -size  +10M    查找当前目录大于10M的文件</p>
+<h6 id="grep命令：查找文件内容"><a href="#grep命令：查找文件内容" class="headerlink" title="grep命令：查找文件内容"></a>grep命令：查找文件内容</h6><p>作用：是在某个文件中找我们所需要的某部分内容，目标是字符串</p>
+<p>语法：grep  [选项]  查找条件  目标文件</p>
+<p>-c：计算找到”搜寻字符串”的次数</p>
+<p>-i：忽略大小写的不同，所以大小写视为相同</p>
+<p>-n：顺便输出行号</p>
+<p>-v：反向选择</p>
+<h6 id="grep不支持通配符，而是使用正则表达式"><a href="#grep不支持通配符，而是使用正则表达式" class="headerlink" title="grep不支持通配符，而是使用正则表达式"></a>grep不支持通配符，而是使用正则表达式</h6><p>^：表示以什么字符开头</p>
+<p>$：表示以什么字符结尾</p>
+<p>grep  ^str /tmp/test    在文件”/tmp/test”中查找以”str”开始的</p>
+<p>ps -ef | grep sshd    查找指定ssh服务进程</p>
+<p>ps -ef | grep sshd | grep -v grep    查找指定服务进程，排除grep外</p>
+<p>ps -ef |grep sshd -c    查找指定进程个数</p>
+<h5 id="14、其他辅助命令"><a href="#14、其他辅助命令" class="headerlink" title="14、其他辅助命令"></a>14、其他辅助命令</h5><p>查看历史命令：history</p>
+<p>help命令：只能查看内部命令的帮助信息</p>
+<p>man命令：查看命令的帮助手册，按q键退出</p>
+<h5 id="15、重定向、管道符”-”"><a href="#15、重定向、管道符”-”" class="headerlink" title="15、重定向、管道符”|”"></a>15、重定向、管道符”|”</h5><p>输入重定向：&lt;<br>输出重定向：&gt;</p>
+<p>“&gt;&gt;”:将命令结果重定向并追加到指定文件的末尾保存，而不覆盖文件中原有的内容</p>
+<p>左边命令的执行结果作为  “|” 右边命令的输入</p>
+<p>ls -l /etc/*.conf | wc –l </p>
+<p>统计/etc 目录下所有以“.conf”结尾的文件的个数。</p>
+<h5 id="16、文件权限"><a href="#16、文件权限" class="headerlink" title="16、文件权限"></a>16、文件权限</h5><h6 id="文件属性："><a href="#文件属性：" class="headerlink" title="文件属性："></a>文件属性：</h6><p>1、文件类型，其中第一个字符代表文件的类别：<br>-：普通文件  d：目录  l：符号链接 c：字符设备 b：块设备<br>文件权限，r：可读  w：可写  x：可执行  -：没有权限<br>2、文件连接数<br>3、文件所有者<br>4、文件属组<br>5、文件大小，默认单位为字节<br>6、文件创建时间<br>7、文件名称</p>
+<h6 id="字母方式修改权限"><a href="#字母方式修改权限" class="headerlink" title="字母方式修改权限"></a>字母方式修改权限</h6><p>文件所有则权限（u）<br>所属组权限（g）<br>其他用户权限（o）<br>所有用户（a）<br>举例：chmod u-w /mnt<br>chmod u+w /mnt </p>
+<h6 id="数字方式修改权限"><a href="#数字方式修改权限" class="headerlink" title="数字方式修改权限"></a>数字方式修改权限</h6><p>r=4  w=2 x=1  -=0<br>chmod 777 test1</p>
+<h6 id="修改文件的所有者与所属组"><a href="#修改文件的所有者与所属组" class="headerlink" title="修改文件的所有者与所属组"></a>修改文件的所有者与所属组</h6><p>chown  :student  /test  //修改所属组</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/12/08/linux的基本用法/">
+    <time datetime="2019-12-08T13:37:30.313Z" class="entry-date">
+        2019-12-08
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2019/11/09/STP生成树协议/" rel="next">STP生成树协议 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2019/12/08/linux的基本用法/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/09/STP生成树协议/">STP生成树协议</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/09/Union注入攻击/">Union注入攻击</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/09/sql注入的原理/">sql注入的原理</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/08/Metasploit的简单用法/">Metasploit的简单用法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2019 John Doe
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

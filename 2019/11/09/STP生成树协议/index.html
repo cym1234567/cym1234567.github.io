@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="1、STP(Spanning Tree Protocol)生成树协议
+
+逻辑上断开环路，防止广播风暴产生
+当线路出现故障，断开的接口被激活，恢复通信，起备份线路作用
+
+2、STP的算法
+STP将一个环形网络生成无环拓扑的步骤：
+
+第一步：选择根网桥
+第二步：选择根端口
+第三步：选择指定端口
+
+3、选">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>STP生成树协议 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1、STP(Spanning Tree Protocol)生成树协议  逻辑上断开环路，防止广播风暴产生 当线路出现故障，断开的接口被激活，恢复通信，起备份线路作用  2、STP的算法 STP将一个环形网络生成无环拓扑的步骤：  第一步：选择根网桥 第二步：选择根端口 第三步：选择指定端口  3、选择根网桥 (1)、如何选择根网桥 根据网桥ID(BID)选择根网桥，谁的优先级小，谁就是根桥。如果优">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STP生成树协议">
+<meta property="og:url" content="http://yoursite.com/2019/11/09/STP生成树协议/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1、STP(Spanning Tree Protocol)生成树协议  逻辑上断开环路，防止广播风暴产生 当线路出现故障，断开的接口被激活，恢复通信，起备份线路作用  2、STP的算法 STP将一个环形网络生成无环拓扑的步骤：  第一步：选择根网桥 第二步：选择根端口 第三步：选择指定端口  3、选择根网桥 (1)、如何选择根网桥 根据网桥ID(BID)选择根网桥，谁的优先级小，谁就是根桥。如果优">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml48076%5Cwps3.jpg">
+<meta property="og:image" content="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml48076%5Cwps2.jpg">
+<meta property="og:image" content="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml48076%5Cwps1.jpg">
+<meta property="og:updated_time" content="2019-11-09T13:46:16.127Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="STP生成树协议">
+<meta name="twitter:description" content="1、STP(Spanning Tree Protocol)生成树协议  逻辑上断开环路，防止广播风暴产生 当线路出现故障，断开的接口被激活，恢复通信，起备份线路作用  2、STP的算法 STP将一个环形网络生成无环拓扑的步骤：  第一步：选择根网桥 第二步：选择根端口 第三步：选择指定端口  3、选择根网桥 (1)、如何选择根网桥 根据网桥ID(BID)选择根网桥，谁的优先级小，谁就是根桥。如果优">
+<meta name="twitter:image" content="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml48076%5Cwps3.jpg">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="Hexo" rel="home">Hexo</a>
+      </h1>
+      
+        <h2 class="site-description hitokoto"></h2>
+        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-STP生成树协议" class="post-STP生成树协议 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      STP生成树协议
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/11/09/STP生成树协议/" data-id="ck3x20xaw0000acw0qab8n39r" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>1、STP(Spanning Tree Protocol)生成树协议</p>
+<ul>
+<li>逻辑上断开环路，防止广播风暴产生</li>
+<li>当线路出现故障，断开的接口被激活，恢复通信，起备份线路作用</li>
+</ul>
+<p>2、STP的算法</p>
+<p>STP将一个环形网络生成无环拓扑的步骤：</p>
+<ul>
+<li>第一步：选择根网桥</li>
+<li>第二步：选择根端口</li>
+<li>第三步：选择指定端口</li>
+</ul>
+<p>3、选择根网桥</p>
+<p>(1)、如何选择根网桥</p>
+<p>根据网桥ID(BID)选择根网桥，谁的优先级小，谁就是根桥。如果优先级相同，谁的MAC地址小谁就是根桥。</p>
+<p>什么是网桥ID(BID)？</p>
+<p>每个网络只能有一个根桥，根桥具有最低的桥ID，根桥上的所有端口都是指派端口，选择根网桥的目的是为了给将生成的树形结构确定一个树根</p>
+<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml48076%5Cwps3.jpg" alt="img"></p>
+<p>(2)、选择根端口(Root Ports)</p>
+<p>在非根桥上选择一个到根网桥最近的端口作为根端口，选择根端口的依据是：</p>
+<ul>
+<li>根路径成本(cost值)最低          从端口出发到根桥</li>
+<li>直连网桥的网桥ID最小</li>
+<li>直连网桥的端口ID最小</li>
+</ul>
+<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml48076%5Cwps2.jpg" alt="img"></p>
+<p>什么是cost值？</p>
+<p>根路径成本：网桥到根网桥的路径上所有链路的成本之和</p>
+<p><img src="file:///C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5Cksohtml48076%5Cwps1.jpg" alt="img"></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/11/09/STP生成树协议/">
+    <time datetime="2019-11-09T13:46:15.897Z" class="entry-date">
+        2019-11-09
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2019/12/08/linux的基本用法/" rel="prev"><span class="meta-nav">←</span> (no title)</a></span>
+    
+    
+        <span class="nav-next"><a href="/2019/11/09/Union注入攻击/" rel="next">Union注入攻击 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2019/12/08/linux的基本用法/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/09/STP生成树协议/">STP生成树协议</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/09/Union注入攻击/">Union注入攻击</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/09/sql注入的原理/">sql注入的原理</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/08/Metasploit的简单用法/">Metasploit的简单用法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2019 John Doe
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
